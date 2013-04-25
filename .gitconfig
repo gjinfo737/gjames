@@ -1,0 +1,23 @@
+[user]
+	name = Grant James
+	email = gjinfo737@gmail.com
+[alias]
+	st = status
+	ci = commit
+	pr = pull --rebase
+	lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+	lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
+[core]
+	autocrlf = false
+	safecrlf = false
+[merge]
+	tool = diffmerge
+[mergetool "diffmerge"]
+	cmd = 'sgdm' -merge -result="$PWD/$MERGED" "$PWD/$LOCAL" "$PWD/$BASE" "$PWD/$REMOTE"
+	trustExitCode = false
+[diff]	
+	tool = diffmerge
+[difftool "diffmerge"]
+	cmd = 'sgdm' "$PWD/$LOCAL" "$PWD/$REMOTE"
+[mergetool]
+	keepBackup = false
